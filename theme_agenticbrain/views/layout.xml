@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="theme_agenticbrain_layout" inherit_id="website.layout" name="Custom Header/Footer">
-
+    <template id="theme_agenticbrain_header" inherit_id="website.template_header_default" name="Custom Header">
         <xpath expr="//header" position="attributes">
             <attribute name="class" add="bg-secondary text-white" separator=" "/>
         </xpath>
+    </template>
 
+    <template id="theme_agenticbrain_footer" inherit_id="website.layout" name="Custom Footer">
         <xpath expr="//div[hasclass('o_footer_copyright')]" position="inside">
             <span class="ms-2 d-none d-md-inline">| AI-Powered ERP Solutions</span>
         </xpath>
-
     </template>
 </odoo>

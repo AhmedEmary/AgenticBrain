@@ -1,0 +1,35 @@
+name: Deploy to Hostinger VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Execute Remote SSH Commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SH_PRIVATE_KEY }}
+          script: |
+            echo "Starting deployment..."
+            cd /opt/odoo/custom_addons/AgenticBrain
+            
+            # Pull the latest code from GitHub
+            git pull origin main
+            
+            # Ensure Odoo owns the new files
+            sudo chown -R odoo:odoo /opt/odoo/custom_addons/AgenticBrain
+            
+            # Restart the Odoo server to load the new code
+            sudo systemctl restart odoo
+            
+            echo "Deployment successful!"

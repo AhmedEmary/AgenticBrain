@@ -4,38 +4,80 @@
         <xpath expr="//div[@id='wrap']" position="replace">
             <div id="wrap" class="oe_structure oe_empty">
 
-                <section class="s_banner pt96 pb96" data-snippet="s_banner" style="background-color: #0A192F;">
-                    <div class="container align-items-center d-flex mt-5 mb-5">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <h1 class="display-3 fw-bold mb-4" style="color: #00FFCC;">Stop Running Your Business.<br/>Let Your Business Run Itself.</h1>
-                                <p class="lead mb-4 fs-3" style="color: #CCD6F6;">We combine the power of Odoo with custom Artificial Intelligence to automate workflows, integrate systems, and scale growth.</p>
-                                <a href="/contactus" class="btn btn-primary btn-lg me-3 mb-2" style="color: #0A192F; font-weight: bold;">Book a Free AI Audit</a>
+                <section class="s_banner pt120 pb120" data-snippet="s_banner" style="background-color: #0A192F;">
+                    <div class="container text-center mt-5 mb-5">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <p class="fw-bold mb-3" style="color: #00D2B5; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase;">Intelligent Automation For Modern Business</p>
+                                <h1 class="display-3 fw-bold mb-4" style="color: #ffffff;">Stop running your business.<br/>Let your business run itself.</h1>
+                                <p class="lead mb-5 fs-4" style="color: #94A3B8; max-width: 800px; margin: 0 auto;">We build digital employees that handle complex processes autonomously. Unlike traditional consultants who install software, we create intelligent systems that think, act, and scale with your business.</p>
+                                <div class="d-flex justify-content-center gap-3">
+                                    <a href="/contactus" class="btn btn-primary btn-lg">Schedule a consultation</a>
+                                    <a href="/services" class="btn btn-outline-light btn-lg">Explore services</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="s_features pt80 pb80" data-snippet="s_features" style="background-color: #112240;">
+                <section class="s_numbers pt48 pb48" style="background-color: #051024;">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-md-3 mb-4 mb-md-0">
+                                <h2 class="display-5 fw-bold" style="color: #00D2B5;">2,847</h2>
+                                <p class="text-white mb-0">Hours saved monthly</p>
+                            </div>
+                            <div class="col-md-3 mb-4 mb-md-0">
+                                <h2 class="display-5 fw-bold" style="color: #00D2B5;">47.2%</h2>
+                                <p class="text-white mb-0">Average cost reduction</p>
+                            </div>
+                            <div class="col-md-3 mb-4 mb-md-0">
+                                <h2 class="display-5 fw-bold" style="color: #00D2B5;">98.3%</h2>
+                                <p class="text-white mb-0">Client satisfaction</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h2 class="display-5 fw-bold" style="color: #00D2B5;">24/7</h2>
+                                <p class="text-white mb-0">Automated operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_features pt96 pb96" style="background-color: #F8FAFC;">
                     <div class="container">
                         <div class="row text-center mb-5">
-                            <h2 class="display-4 fw-bold" style="color: #ffffff;">Our Core Solutions</h2>
+                            <p class="fw-bold mb-2" style="color: #00D2B5; letter-spacing: 1px; font-size: 0.85rem; text-transform: uppercase;">What We Do</p>
+                            <h2 class="display-5 fw-bold" style="color: #0A192F;">Build intelligent systems that work for you</h2>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4 pt24 pb24 text-center">
-                                <i class="fa fa-4x fa-cogs mb-3" style="color: #00FFCC;"></i>
-                                <h3 class="h4 fw-bold" style="color: #ffffff;">Odoo Implementation</h3>
-                                <p style="color: #CCD6F6;">Expert configuration mapping directly to your exact business logic.</p>
+
+                        <div class="row g-4 text-start">
+                            <div class="col-md-6">
+                                <div class="agentic-card">
+                                    <div class="icon-wrapper"><i class="fa fa-2x fa-robot"></i></div>
+                                    <h3 class="h4 fw-bold mb-3" style="color: #0A192F;">Custom AI business agents</h3>
+                                    <p class="text-muted mb-4 fs-5">Build intelligent automation systems that handle complex business processes autonomously, from customer service to data analysis.</p>
+                                </div>
                             </div>
-                            <div class="col-lg-4 pt24 pb24 text-center">
-                                <i class="fa fa-4x fa-robot mb-3" style="color: #00FFCC;"></i>
-                                <h3 class="h4 fw-bold" style="color: #ffffff;">Custom AI Agents</h3>
-                                <p style="color: #CCD6F6;">Your new digital employees, built right into your ERP system.</p>
+                            <div class="col-md-6">
+                                <div class="agentic-card">
+                                    <div class="icon-wrapper"><i class="fa fa-2x fa-cogs"></i></div>
+                                    <h3 class="h4 fw-bold mb-3" style="color: #0A192F;">Expert Odoo implementation</h3>
+                                    <p class="text-muted mb-4 fs-5">Deploy and customize enterprise-grade ERP solutions tailored to your business workflows and operational needs.</p>
+                                </div>
                             </div>
-                            <div class="col-lg-4 pt24 pb24 text-center">
-                                <i class="fa fa-4x fa-plug mb-3" style="color: #00FFCC;"></i>
-                                <h3 class="h4 fw-bold" style="color: #ffffff;">System Integrations</h3>
-                                <p style="color: #CCD6F6;">Connecting Odoo to your entire existing software stack flawlessly.</p>
+                            <div class="col-md-6">
+                                <div class="agentic-card">
+                                    <div class="icon-wrapper"><i class="fa fa-2x fa-link"></i></div>
+                                    <h3 class="h4 fw-bold mb-3" style="color: #0A192F;">System integrations</h3>
+                                    <p class="text-muted mb-4 fs-5">Connect your existing tools and platforms into a unified ecosystem that eliminates data silos and manual work.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="agentic-card">
+                                    <div class="icon-wrapper"><i class="fa fa-2x fa-code"></i></div>
+                                    <h3 class="h4 fw-bold mb-3" style="color: #0A192F;">Custom Python development</h3>
+                                    <p class="text-muted mb-4 fs-5">Create robust, scalable applications and automation scripts that solve your unique business challenges.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,19 +1,19 @@
 {
     'name': 'Agentic Brain Theme',
     'description': 'Custom theme for Agentic Brain Solutions',
-    'category': 'Theme/Corporate',
     'version': '1.0',
-    'depends': ['website'],
+    'depends': ['website', 'crm'],
     'data': [
         'views/layout.xml',
         'views/homepage.xml',
+        'views/about.xml',
+        'views/contact.xml',
     ],
     'assets': {
-        'web._assets_primary_variables': [
-            'theme_agenticbrain/static/src/scss/primary_variables.scss',
+        'web.assets_frontend': [
+            'theme_agenticbrain/static/src/scss/theme.scss',
         ],
     },
     'application': False,
-    'auto_install': False,
     'license': 'LGPL-3',
 }
