@@ -23,10 +23,13 @@ jobs:
             echo "Starting deployment..."
             cd /opt/odoo/custom_addons/AgenticBrain
             
-            # Pull the latest code from GitHub
-            git pull origin main
+            # Tell Git this folder is safe for the root user to modify
+            git config --global --add safe.directory /opt/odoo/custom_addons/AgenticBrain
             
-            # Ensure Odoo owns the new files
+            # Pull the latest code using the PAT for authentication
+            git pull https://AhmedElemary57:${{ secrets.PAT }}@github.com/AhmedElemary57/AgenticBrain.git main
+            
+            # Ensure Odoo owns all files including the newly downloaded ones
             sudo chown -R odoo:odoo /opt/odoo/custom_addons/AgenticBrain
             
             # Restart the Odoo server to load the new code
