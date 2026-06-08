@@ -20,19 +20,17 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SH_PRIVATE_KEY }}
           script: |
+            set -e
             echo "Starting deployment..."
             cd /opt/odoo/custom_addons/AgenticBrain
-            
-            # Tell Git this folder is safe for the root user to modify
+
             git config --global --add safe.directory /opt/odoo/custom_addons/AgenticBrain
-            
-            # Pull the latest code using the PAT for authentication
-            git pull https://AhmedEmary:${{ secrets.PAT }}@github.com/AhmedEmary/AgenticBrain.git main
-            
-            # Ensure Odoo owns all files including the newly downloaded ones
+
+            REPO_URL="https://AhmedEmary:${{ secrets.PAT }}@github.com/AhmedEmary/AgenticBrain.git"
+            git fetch "$REPO_URL" main
+            git reset --hard FETCH_HEAD
+
             sudo chown -R odoo:odoo /opt/odoo/custom_addons/AgenticBrain
-            
-            # Restart the Odoo server to load the new code
             sudo systemctl restart odoo
-            
+
             echo "Deployment successful!"
