@@ -27,7 +27,7 @@ jobs:
             git config --global --add safe.directory /opt/odoo/custom_addons/AgenticBrain
             
             # Pull the latest code using the PAT for authentication
-            git pull https://AhmedElemary57:${{ secrets.PAT }}@github.com/AhmedElemary57/AgenticBrain.git main
+            git pull https://AhmedEmary:${{ secrets.PAT }}@github.com/AhmedEmary/AgenticBrain.git main
             
             # Ensure Odoo owns all files including the newly downloaded ones
             sudo chown -R odoo:odoo /opt/odoo/custom_addons/AgenticBrain
