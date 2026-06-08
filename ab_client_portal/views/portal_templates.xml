@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_requests" name="Client Portal: My Requests"
+              customize_show="True" inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_service_category_enable" t-value="True"/>
+        </xpath>
+        <div id="portal_service_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/project/static/src/img/tasks.svg'"/>
+                <t t-set="title">My Requests</t>
+                <t t-set="url" t-value="'/my/requests'"/>
+                <t t-set="text">Submit and track your change requests</t>
+                <t t-set="placeholder_count" t-value="'request_count'"/>
+            </t>
+        </div>
+    </template>
+
+    <template id="portal_request_status_badge" name="Client Status Badge">
+        <t t-set="badge_class" t-value="{
+            'draft': 'bg-secondary',
+            'submitted': 'bg-info',
+            'under_review': 'bg-warning',
+            'approved': 'bg-primary',
+            'in_progress': 'bg-warning',
+            'delivered': 'bg-success',
+        }.get(status, 'bg-secondary')"/>
+        <span t-att-class="'badge ' + badge_class">
+            <t t-out="dict([
+                ('draft', 'Draft'),
+                ('submitted', 'Submitted'),
+                ('under_review', 'Under Review'),
+                ('approved', 'Approved'),
+                ('in_progress', 'In Progress'),
+                ('delivered', 'Delivered'),
+            ]).get(status, status)"/>
+        </span>
+    </template>
+
+    <template id="portal_my_requests" name="My Requests">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">My Requests</t>
+            </t>
+            <div class="mt-3 mb-3">
+                <a href="/my/requests/new" class="btn btn-primary">New Request</a>
+            </div>
+            <t t-if="not tasks">
+                <p>You haven't submitted any requests yet.</p>
+            </t>
+            <t t-else="">
+                <t t-call="portal.portal_table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="tasks" t-as="task">
+                            <td>
+                                <a t-attf-href="/my/requests/{{ task.id }}" t-out="task.name"/>
+                            </td>
+                            <td><t t-out="dict(task._fields['request_type'].selection).get(task.request_type) or '—'"/></td>
+                            <td>
+                                <t t-call="ab_client_portal.portal_request_status_badge">
+                                    <t t-set="status" t-value="task.client_status"/>
+                                </t>
+                            </td>
+                            <td><span t-field="task.create_date" t-options="{'widget': 'date'}"/></td>
+                        </tr>
+                    </tbody>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_request_no_project" name="No Portal Project">
+        <t t-call="portal.portal_layout">
+            <div class="alert alert-info mt-3">
+                <p>There is no portal-enabled project linked to your account yet. Please contact us so we can set one up.</p>
+                <a class="btn btn-primary" href="/my">Back to portal</a>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_request_form" name="Client Request Form">
+        <t t-call="portal.portal_layout">
+            <div class="mt-3">
+                <t t-if="task">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <h3 class="mb-0" t-out="task.name"/>
+                        <t t-call="ab_client_portal.portal_request_status_badge">
+                            <t t-set="status" t-value="task.client_status"/>
+                        </t>
+                    </div>
+                    <t t-if="task.ai_triage_note and task.client_status != 'draft'">
+                        <div class="alert alert-light border mt-3">
+                            <strong>Triage notes</strong>
+                            <div t-field="task.ai_triage_note"/>
+                        </div>
+                    </t>
+                </t>
+                <t t-else="">
+                    <h3>New Request</h3>
+                </t>
+
+                <t t-set="editable" t-value="(not task) or task.is_client_editable"/>
+                <t t-set="form_action" t-value="'/my/requests/new' if not task else ('/my/requests/%s/edit' % task.id)"/>
+
+                <form t-att-action="form_action" method="post" enctype="multipart/form-data" class="mt-3">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <t t-if="not task">
+                        <div class="mb-3">
+                            <label class="form-label">Project</label>
+                            <select name="project_id" class="form-select" required="required">
+                                <option t-foreach="projects" t-as="p" t-att-value="p.id" t-out="p.name"/>
+                            </select>
+                        </div>
+                    </t>
+
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" name="name" class="form-control"
+                               t-att-value="task.name if task else ''"
+                               t-att-readonly="None if editable else 'readonly'" required="required"/>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Request Type</label>
+                            <select name="request_type" class="form-select" t-att-disabled="None if editable else 'disabled'">
+                                <option value="">—</option>
+                                <option t-foreach="request_types" t-as="rt"
+                                        t-att-value="rt[0]"
+                                        t-att-selected="'selected' if (task and task.request_type == rt[0]) else None"
+                                        t-out="rt[1]"/>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Client Priority</label>
+                            <select name="client_priority" class="form-select" t-att-disabled="None if editable else 'disabled'">
+                                <option t-foreach="client_priorities" t-as="cp"
+                                        t-att-value="cp[0]"
+                                        t-att-selected="'selected' if (task and task.client_priority == cp[0]) else (('selected' if cp[0] == 'normal' else None) if not task else None)"
+                                        t-out="cp[1]"/>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Affected Module</label>
+                        <input type="text" name="affected_module" class="form-control"
+                               t-att-value="task.affected_module if task else ''"
+                               t-att-readonly="None if editable else 'readonly'"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" rows="5" class="form-control"
+                                  t-att-readonly="None if editable else 'readonly'"><t t-if="task" t-out="task.description"/></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Acceptance Criteria</label>
+                        <textarea name="acceptance_criteria" rows="5" class="form-control"
+                                  t-att-readonly="None if editable else 'readonly'"><t t-if="task" t-out="task.acceptance_criteria"/></textarea>
+                    </div>
+
+                    <t t-if="editable">
+                        <button type="submit" class="btn btn-secondary">
+                            <t t-if="task">Save Draft</t>
+                            <t t-else="">Create Draft</t>
+                        </button>
+                    </t>
+                </form>
+
+                <t t-if="task and task.is_client_editable">
+                    <form t-attf-action="/my/requests/{{ task.id }}/submit" method="post" class="mt-2">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </t>
+
+                <div class="mt-4">
+                    <a href="/my/requests" class="btn btn-link">← Back to requests</a>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

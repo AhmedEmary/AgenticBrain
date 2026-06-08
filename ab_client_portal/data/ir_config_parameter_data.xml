@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="ir_config_ai_model" model="ir.config_parameter">
+            <field name="key">ab_client_portal.ai_model</field>
+            <field name="value">claude-opus-4-8</field>
+        </record>
+
+        <record id="ir_config_billing_enabled" model="ir.config_parameter">
+            <field name="key">ab_client_portal.billing_enabled</field>
+            <field name="value">False</field>
+        </record>
+
+    </data>
+</odoo>
