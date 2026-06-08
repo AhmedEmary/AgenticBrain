@@ -81,11 +81,11 @@ class ProjectTask(models.Model):
             task.is_client_editable = task.client_status == 'draft'
 
     def _assert_portal_owner(self):
-        """Guard: the current user's commercial partner owns this task."""
+        """Guard: the current portal user's commercial partner is the project's customer."""
         self.ensure_one()
-        partner = self.env.user.partner_id.commercial_partner_id
-        followers = self.message_partner_ids.mapped('commercial_partner_id')
-        if partner not in followers:
+        partner_id = self.env.context.get('portal_partner_id') or self.env.user.partner_id.commercial_partner_id.id
+        customer = self.project_id.partner_id.commercial_partner_id
+        if not customer or customer.id != partner_id:
             raise AccessError(_("You do not have access to this request."))
 
     def action_client_submit(self):

@@ -25,14 +25,18 @@ class ClientPortal(CustomerPortal):
         return values
 
     def _request_base_domain(self):
-        return [('project_id.privacy_visibility', '=', 'portal')]
+        partner = request.env.user.partner_id.commercial_partner_id
+        return [
+            ('project_id.privacy_visibility', '=', 'portal'),
+            ('project_id.partner_id', 'child_of', [partner.id]),
+        ]
 
     def _user_projects(self):
-        """Projects in portal mode the current user (via commercial org) can post to."""
+        """Portal projects where the current user's commercial partner is the customer."""
         partner = request.env.user.partner_id.commercial_partner_id
         return request.env['project.project'].sudo().search([
             ('privacy_visibility', '=', 'portal'),
-            ('message_partner_ids', 'child_of', [partner.id]),
+            ('partner_id', 'child_of', [partner.id]),
         ])
 
     def _get_task_or_redirect(self, task_id, access_token=None):
@@ -130,5 +134,6 @@ class ClientPortal(CustomerPortal):
         task_sudo = self._get_task_or_redirect(task_id)
         if task_sudo is None:
             return request.redirect('/my')
-        task_sudo.action_client_submit()
+        partner_id = request.env.user.partner_id.commercial_partner_id.id
+        task_sudo.with_context(portal_partner_id=partner_id).action_client_submit()
         return request.redirect('/my/requests/%s' % task_sudo.id)
