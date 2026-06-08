@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_alias_sales_scout" model="mail.alias">
+            <field name="alias_name">scout</field>
+            <field name="alias_model_id" ref="model_ai_sales_scout"/>
+            <field name="alias_contact">everyone</field>
+        </record>
+    </data>
+</odoo>
