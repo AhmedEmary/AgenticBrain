@@ -19,4 +19,14 @@
         </record>
 
     </data>
+
+    <data>
+        <!-- Disable Odoo's per-user stage visibility rule. The addon ships
+             shared workflow stages, not personal kanban stages, so the
+             default "user_id IN (False, current_user)" filter only causes
+             AccessErrors when a portal or non-owner user touches a task. -->
+        <record id="project.task_type_visibility_rule" model="ir.rule">
+            <field name="active" eval="False"/>
+        </record>
+    </data>
 </odoo>
