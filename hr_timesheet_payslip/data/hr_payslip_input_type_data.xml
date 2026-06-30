@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Input type used to carry the timesheet hours total onto a payslip.
+             struct_ids is left empty so it is available on all structures.
+             The salary rule (next file) is what actually prices it. -->
+        <record id="input_type_ts_hours" model="hr.payslip.input.type">
+            <field name="name">Timesheet Hours</field>
+            <field name="code">TS_HOURS</field>
+            <field name="is_quantity" eval="True"/>
+        </record>
+
+        <!-- Make TS_HOURS visible in the default payroll structure so HR can
+             edit the value on the payslip form before validating. Users with
+             custom structures should add "Timesheet Hours" to their
+             structure's "Other Input Line" list manually. -->
+        <record id="hr_payroll.default_structure" model="hr.payroll.structure">
+            <field name="input_line_type_ids" eval="[(4, ref('input_type_ts_hours'))]"/>
+        </record>
+
+    </data>
+</odoo>
