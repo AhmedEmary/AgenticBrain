@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="agentic_homepage" inherit_id="website.homepage" name="Agentic Brain Homepage">
+    <xpath expr="//div[@id='wrap']" position="replace">
+      <div id="wrap" class="ab-wrap">
+
+        <!-- ============ HERO ============ -->
+        <div style="position: relative; overflow: hidden; padding: 30px 32px 0;">
+          <div style="position: absolute; top: -300px; left: 50%; transform: translateX(-50%); width: 1200px; height: 1200px; border-radius: 50%; background: radial-gradient(circle, rgba(18,187,214,.22), rgba(18,187,214,.05) 45%, transparent 66%); animation: ab-glowPulse 8s ease-in-out infinite; z-index: 0;"></div>
+          <svg viewBox="0 0 1440 700" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 700px; z-index: 0; opacity: .5;">
+            <g stroke="#12BBD6" stroke-width="1.2" fill="none" stroke-dasharray="6 8">
+              <path d="M200,150 L420,240 L300,420 M420,240 L640,180 M1240,120 L1060,300 L1180,470 M1060,300 L860,240" style="stroke-dasharray: 600; stroke-dashoffset: 600; animation: ab-dash 4s ease forwards;"></path>
+            </g>
+          </svg>
+          <div style="position: absolute; top: 150px; left: 180px; width: 12px; height: 12px; border-radius: 50%; background: #12BBD6; animation: ab-pulseDot 3.4s ease-in-out infinite; z-index: 1;"></div>
+          <div style="position: absolute; top: 240px; left: 420px; width: 8px; height: 8px; border-radius: 50%; background: #0B2A4A; animation: ab-pulseDot 4s ease-in-out infinite .6s; z-index: 1;"></div>
+          <div style="position: absolute; top: 120px; right: 220px; width: 10px; height: 10px; border-radius: 50%; background: #12BBD6; animation: ab-pulseDot 3.8s ease-in-out infinite 1.1s; z-index: 1;"></div>
+          <div style="position: absolute; top: 320px; right: 160px; width: 7px; height: 7px; border-radius: 50%; background: #0B2A4A; animation: ab-pulseDot 3.2s ease-in-out infinite .3s; z-index: 1;"></div>
+          <div style="position: absolute; top: 420px; left: 300px; width: 9px; height: 9px; border-radius: 50%; background: #12BBD6; animation: ab-pulseDot 4.2s ease-in-out infinite .9s; z-index: 1;"></div>
+
+          <div style="position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; padding-top: 40px;">
+            <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,.85); backdrop-filter: blur(6px); border: 1px solid #dcebf2; padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #0B2A4A; animation: ab-heroIn .7s ease both;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #12BBD6; box-shadow: 0 0 0 4px rgba(18,187,214,.25);"></span>Autonomous business, engineered
+            </div>
+            <h1 class="ab-hero-h1" style="font-family: 'Space Grotesk', sans-serif; font-size: 88px; line-height: .98; letter-spacing: -.03em; color: #0B2A4A; margin-top: 28px; font-weight: 700; animation: ab-heroIn .8s ease both .08s;">Your entire business,<br/>running <span id="ab-word" class="ab-word" style="display: inline-block; min-width: 340px; background: linear-gradient(90deg,#12BBD6,#0B2A4A,#12BBD6); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: ab-gradShift 5s ease infinite; text-align: left;">itself.</span></h1>
+            <p style="font-size: 21px; line-height: 1.6; color: #52657a; max-width: 640px; margin-top: 28px; animation: ab-heroIn .8s ease both .16s;">One unified Odoo platform, supercharged with custom AI agents that handle the heavy lifting — accelerating every workflow, in real time.</p>
+            <div style="display: flex; gap: 16px; margin-top: 40px; align-items: center; animation: ab-heroIn .8s ease both .24s;">
+              <a href="#ab-services" class="ab-cta ab-cta-navy" style="display: inline-flex; align-items: center; gap: 10px; background: #0B2A4A; color: #fff; font-weight: 700; font-size: 17px; padding: 18px 34px; border-radius: 14px;">Explore our solutions →</a>
+              <a href="#ab-ai" class="ab-text-link" style="display: inline-flex; align-items: center; gap: 10px; color: #0B2A4A; font-weight: 700; font-size: 17px; padding: 18px 8px;">▶ Watch how it works</a>
+            </div>
+            <div style="margin-top: 64px; width: 100%; max-width: 960px; height: 340px; border-radius: 22px 22px 0 0; background: #fff; box-shadow: 0 -14px 70px -20px rgba(11,42,74,.32); border: 1px solid #eaf0f5; border-bottom: none; overflow: hidden; animation: ab-heroIn 1s ease both .34s;">
+              <div style="height: 42px; background: #0B2A4A; display: flex; align-items: center; padding: 0 16px; gap: 8px;">
+                <span style="width: 9px; height: 9px; border-radius: 50%; background: #ff5f57;"></span>
+                <span style="width: 9px; height: 9px; border-radius: 50%; background: #febc2e;"></span>
+                <span style="width: 9px; height: 9px; border-radius: 50%; background: #28c840;"></span>
+                <span style="margin-left: 14px; color: #9db4c9; font-size: 12px; font-family: 'Space Grotesk', sans-serif;">agenticbrain — unified control room</span>
+              </div>
+              <div style="height: 298px; overflow: hidden;">
+                <img src="/agentic_brain_website/static/src/img/dashboard.png" alt="Unified dashboard" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ MARQUEE ============ -->
+        <div style="background: #0B2A4A; padding: 26px 0; overflow: hidden;">
+          <div style="display: flex; gap: 70px; width: max-content; animation: ab-marquee 26s linear infinite; align-items: center;">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Odoo ERP</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">AI Agents</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Automation</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Real-time Data</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Custom Integrations</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Open Source</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Odoo ERP</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">AI Agents</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Automation</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Real-time Data</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Custom Integrations</span><span style="color:#12BBD6;">•</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; color: #7fb6cc; white-space: nowrap; letter-spacing: .04em;">Open Source</span><span style="color:#12BBD6;">•</span>
+          </div>
+        </div>
+
+        <!-- ============ SERVICES ============ -->
+        <div id="ab-services" style="max-width: 1240px; margin: 0 auto; padding: 120px 32px 40px;">
+          <div class="rev" style="text-align: center; max-width: 720px; margin: 0 auto;">
+            <div style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #12BBD6; font-weight: 700;">What we do</div>
+            <h2 class="ab-section-h2" style="font-family: 'Space Grotesk', sans-serif; font-size: 52px; line-height: 1.05; letter-spacing: -.02em; margin-top: 14px; font-weight: 700;">Your entire business, managed in one place</h2>
+            <p style="font-size: 19px; color: #52657a; margin-top: 18px; line-height: 1.6;">You shouldn't need a dozen apps to run your company. We build tailored Odoo solutions so everything is seamlessly maintained from one unified platform.</p>
+          </div>
+          <div class="ab-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px;">
+            <div class="revS ab-card" style="background: #fff; border: 1px solid #e8eef4; border-radius: 20px; padding: 34px; box-shadow: 0 10px 30px -20px rgba(11,42,74,.25);">
+              <div style="width: 54px; height: 54px; border-radius: 14px; background: linear-gradient(135deg, #12BBD6, #0B2A4A); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; color: #fff;">01</div>
+              <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-top: 22px; font-weight: 700;">Odoo ERP, tailored</h3>
+              <p style="font-size: 16px; color: #52657a; line-height: 1.6; margin-top: 12px;">We architect, customize, and integrate powerful Odoo ERP systems built exactly around what you and your customers need.</p>
+            </div>
+            <div class="revS ab-card" style="background: #fff; border: 1px solid #e8eef4; border-radius: 20px; padding: 34px; box-shadow: 0 10px 30px -20px rgba(11,42,74,.25);">
+              <div style="width: 54px; height: 54px; border-radius: 14px; background: linear-gradient(135deg, #12BBD6, #0B2A4A); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; color: #fff;">02</div>
+              <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-top: 22px; font-weight: 700;">Autonomous AI agents</h3>
+              <p style="font-size: 16px; color: #52657a; line-height: 1.6; margin-top: 12px;">Custom AI that operates inside your systems — accelerating workflows and acting on your data in real time.</p>
+            </div>
+            <div class="revS ab-card" style="background: #fff; border: 1px solid #e8eef4; border-radius: 20px; padding: 34px; box-shadow: 0 10px 30px -20px rgba(11,42,74,.25);">
+              <div style="width: 54px; height: 54px; border-radius: 14px; background: linear-gradient(135deg, #12BBD6, #0B2A4A); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; color: #fff;">03</div>
+              <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-top: 22px; font-weight: 700;">One unified platform</h3>
+              <p style="font-size: 16px; color: #52657a; line-height: 1.6; margin-top: 12px;">No more juggling a dozen apps. Your entire business, seamlessly maintained from a single intuitive place.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ WORKFLOW ============ -->
+        <div id="ab-workflow" style="max-width: 1240px; margin: 0 auto; padding: 100px 32px;">
+          <div class="ab-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;">
+            <div class="revL">
+              <div style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #12BBD6; font-weight: 700;">Workflow</div>
+              <h2 class="ab-section-h2" style="font-family: 'Space Grotesk', sans-serif; font-size: 48px; line-height: 1.06; letter-spacing: -.02em; margin-top: 14px; font-weight: 700;">Enhance every step of how your team works</h2>
+              <p style="font-size: 18px; color: #52657a; line-height: 1.65; margin-top: 20px;">We're committed to the best software on the market — user-friendly, reliable, efficient. Start with the customer, find out what they want, and give it to them.</p>
+              <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 30px;">
+                <div style="display: flex; align-items: center; gap: 14px;"><span style="flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: rgba(18,187,214,.14); color: #0B8CA0; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px;">✓</span><span style="font-size: 17px; font-weight: 600; color: #26394b;">User-friendly, reliable, and efficient by design</span></div>
+                <div style="display: flex; align-items: center; gap: 14px;"><span style="flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: rgba(18,187,214,.14); color: #0B8CA0; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px;">✓</span><span style="font-size: 17px; font-weight: 600; color: #26394b;">Centralized platform that runs your whole business</span></div>
+                <div style="display: flex; align-items: center; gap: 14px;"><span style="flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: rgba(18,187,214,.14); color: #0B8CA0; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px;">✓</span><span style="font-size: 17px; font-weight: 600; color: #26394b;">Built on open-source flexibility you truly own</span></div>
+              </div>
+            </div>
+            <div class="revR" style="position: relative;">
+              <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 40px 80px -34px rgba(11,42,74,.4); border: 1px solid #eaf0f5;">
+                <div style="height: 400px; overflow: hidden; background: #f4f7fa;">
+                  <img src="/agentic_brain_website/static/src/img/workflow.png" alt="AI + Odoo workflow" style="width: 100%; height: 100%; object-fit: cover; display: block;"/>
+                </div>
+              </div>
+              <div style="position: absolute; bottom: -22px; left: -22px; background: #fff; border: 1px solid #e7eef4; border-radius: 16px; padding: 16px 20px; box-shadow: 0 24px 50px -24px rgba(11,42,74,.4); animation: ab-floatY 6s ease-in-out infinite;">
+                <div style="font-size: 12px; color: #52657a; font-weight: 700;">Tasks automated today</div>
+                <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; color: #0B2A4A;">342 ▲</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ AI AGENTS (dark) ============ -->
+        <div id="ab-ai" style="position: relative; background: radial-gradient(120% 90% at 80% 0%, #0e3a5c 0%, #082741 42%, #051a2e 100%); overflow: hidden;">
+          <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 60px 60px;"></div>
+          <div style="position: absolute; top: -140px; right: -100px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(18,187,214,.3), transparent 66%); animation: ab-glowPulse 9s ease-in-out infinite;"></div>
+          <div class="ab-grid-2" style="position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 110px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;">
+            <div class="revR ab-order-2" style="position: relative; order: 2;">
+              <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.08); animation: ab-floatY 7s ease-in-out infinite;">
+                <div style="height: 44px; background: #061a2c; display: flex; align-items: center; padding: 0 16px; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.06);">
+                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f57;"></span>
+                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #febc2e;"></span>
+                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #28c840;"></span>
+                  <span style="margin-left: 14px; color: #6b8aa3; font-size: 12px; font-family: 'Space Grotesk', sans-serif;">agent — live ops</span>
+                </div>
+                <div style="height: 380px; overflow: hidden; background: #0a2035;">
+                  <img src="/agentic_brain_website/static/src/img/agent.png" alt="AI agent control room" style="width: 100%; height: 100%; object-fit: cover; display: block;"/>
+                </div>
+              </div>
+              <div style="position: absolute; top: 24px; right: -12px; background: #0a2035; border: 1px solid rgba(18,187,214,.4); border-radius: 14px; padding: 14px 18px; box-shadow: 0 20px 40px -18px rgba(0,0,0,.6); animation: ab-floatYb 6s ease-in-out infinite;">
+                <div style="font-size: 12px; color: #7fb6cc; font-weight: 700;">Agent status</div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.2);"></span><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff;">Autonomous · online</span></div>
+              </div>
+            </div>
+            <div class="revL ab-order-1" style="order: 1;">
+              <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(18,187,214,.12); border: 1px solid rgba(18,187,214,.4); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #6fe3f4;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #12BBD6;"></span>Next-generation AI
+              </div>
+              <h2 class="ab-section-h2" style="font-family: 'Space Grotesk', sans-serif; font-size: 50px; line-height: 1.05; letter-spacing: -.02em; margin-top: 18px; font-weight: 700; color: #fff;">AI agents that work <span style="color: #35E0F0;">smarter</span>, not harder</h2>
+              <p style="font-size: 18px; color: #a9c2d6; line-height: 1.65; margin-top: 20px;">We build and integrate custom AI agents that operate autonomously within your systems — handling the heavy lifting, accelerating workflows, and interacting with your data in real time. Tell us your biggest bottlenecks, and we'll build the AI to solve them.</p>
+              <a href="/contactus" class="ab-cta ab-cta-cyan-white" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; background: #12BBD6; color: #04222c; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 14px;">Build my AI agents →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ STATS ============ -->
+        <div id="ab-stats" style="max-width: 1240px; margin: 0 auto; padding: 100px 32px;">
+          <div class="ab-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;">
+            <div class="revS">
+              <div id="st-hours" style="font-family: 'Space Grotesk', sans-serif; font-size: 66px; font-weight: 700; color: #0B2A4A; letter-spacing: -.02em;">0+</div>
+              <div style="font-size: 17px; color: #52657a; font-weight: 600; margin-top: 6px;">hours saved for our clients</div>
+            </div>
+            <div class="revS">
+              <div id="st-faster" style="font-family: 'Space Grotesk', sans-serif; font-size: 66px; font-weight: 700; color: #0B2A4A; letter-spacing: -.02em;">0%</div>
+              <div style="font-size: 17px; color: #52657a; font-weight: 600; margin-top: 6px;">faster workflows on average</div>
+            </div>
+            <div class="revS">
+              <div id="st-rev" style="font-family: 'Space Grotesk', sans-serif; font-size: 66px; font-weight: 700; color: #0B2A4A; letter-spacing: -.02em;">0×</div>
+              <div style="font-size: 17px; color: #52657a; font-weight: 600; margin-top: 6px;">return on automation investment</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ PROCESS ============ -->
+        <div id="ab-process" style="background: #fff; border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6;">
+          <div style="max-width: 1240px; margin: 0 auto; padding: 110px 32px;">
+            <div class="rev" style="text-align: center; max-width: 700px; margin: 0 auto;">
+              <div style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #12BBD6; font-weight: 700;">How we work</div>
+              <h2 class="ab-section-h2" style="font-family: 'Space Grotesk', sans-serif; font-size: 52px; line-height: 1.05; letter-spacing: -.02em; margin-top: 14px; font-weight: 700;">From bottleneck to autopilot in three steps</h2>
+            </div>
+            <div class="ab-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px;">
+              <div class="revS" style="position: relative; padding: 34px; border-radius: 20px; background: #F7FAFC; border: 1px solid #e8eef4;">
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 54px; font-weight: 700; color: #d3e2ec; line-height: 1;">1</div>
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 23px; margin-top: 14px; font-weight: 700;">Discover</h3>
+                <p style="font-size: 16px; color: #52657a; line-height: 1.6; margin-top: 10px;">We map your bottlenecks and how your team actually works — starting with the customer.</p>
+              </div>
+              <div class="revS" style="position: relative; padding: 34px; border-radius: 20px; background: #F7FAFC; border: 1px solid #e8eef4;">
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 54px; font-weight: 700; color: #d3e2ec; line-height: 1;">2</div>
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 23px; margin-top: 14px; font-weight: 700;">Architect</h3>
+                <p style="font-size: 16px; color: #52657a; line-height: 1.6; margin-top: 10px;">We build your tailored Odoo platform and the AI agents that operate within it.</p>
+              </div>
+              <div class="revS" style="position: relative; padding: 34px; border-radius: 20px; background: #F7FAFC; border: 1px solid #e8eef4;">
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 54px; font-weight: 700; color: #d3e2ec; line-height: 1;">3</div>
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 23px; margin-top: 14px; font-weight: 700;">Autopilot</h3>
+                <p style="font-size: 16px; color: #52657a; line-height: 1.6; margin-top: 10px;">Your business runs itself — agents handle the heavy lifting, 24/7, in real time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ TESTIMONIAL ============ -->
+        <div style="max-width: 940px; margin: 0 auto; padding: 110px 32px; text-align: center;">
+          <div class="rev">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; line-height: 1.3; letter-spacing: -.01em; font-weight: 500; color: #16324a;">"We stopped juggling apps and let the platform run the business. Agentic Brain gave us <span style="color: #12BBD6;">one system that actually thinks for itself.</span>"</div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 34px;">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: repeating-linear-gradient(135deg,#e6eef5 0 8px,#dce6ef 8px 16px);"></div>
+              <div style="text-align: left;">
+                <div style="font-weight: 700; color: #0B2A4A;">Operations Director</div>
+                <div style="font-size: 14px; color: #52657a;">SMB manufacturing client</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ CTA ============ -->
+        <div id="ab-contact" style="max-width: 1240px; margin: 0 auto 100px; padding: 0 32px;">
+          <div class="revS" style="position: relative; overflow: hidden; border-radius: 28px; background: radial-gradient(120% 140% at 15% 0%, #0e3a5c 0%, #082741 45%, #051a2e 100%); padding: 80px 60px; text-align: center;">
+            <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 54px 54px;"></div>
+            <div style="position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(18,187,214,.3), transparent 66%); animation: ab-glowPulse 8s ease-in-out infinite;"></div>
+            <div style="position: relative; z-index: 2;">
+              <h2 class="ab-section-h2" style="font-family: 'Space Grotesk', sans-serif; font-size: 56px; line-height: 1.05; letter-spacing: -.02em; color: #fff; font-weight: 700;">Let your business run itself.</h2>
+              <p style="font-size: 20px; color: #a9c2d6; max-width: 560px; margin: 20px auto 0; line-height: 1.6;">Tell us your biggest bottlenecks. We'll architect the Odoo platform and the AI agents to solve them.</p>
+              <div style="display: flex; gap: 16px; justify-content: center; margin-top: 38px; flex-wrap: wrap;">
+                <a href="/appointment" class="ab-cta ab-cta-cyan-white" style="background: #12BBD6; color: #04222c; font-weight: 700; font-size: 17px; padding: 18px 34px; border-radius: 14px;">Book an appointment</a>
+                <a href="tel:+201151554368" class="ab-cta ab-cta-ghost-dark" style="border: 1px solid rgba(255,255,255,.3); color: #fff; font-weight: 700; font-size: 17px; padding: 18px 34px; border-radius: 14px;">Call +20 115 155 4368</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </xpath>
+  </template>
+</odoo>
